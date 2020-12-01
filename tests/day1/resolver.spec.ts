@@ -1,12 +1,10 @@
 import { resolverPart1, resolverPart2 } from "../../src/day1/resolver";
-import fs from "fs";
+import { readFile } from "../../src/utils/utils";
 
 describe("day 1", () => {
   describe("part 1", () => {
     it("find the two entries that sum to 2020 and then multiply those two numbers together", async () => {
-      const input = fs
-        .readFileSync(`${__dirname}/../../src/day1/test.txt`)
-        .toString();
+      const input = readFile(`${__dirname}/../../src/day1/test.txt`);
 
       const result = resolverPart1(input);
 
@@ -14,9 +12,7 @@ describe("day 1", () => {
     });
 
     it("find the two entries that sum to 2020 and then multiply those two numbers together with the input data", async () => {
-      const input = fs
-        .readFileSync(`${__dirname}/../../src/day1/input.txt`)
-        .toString();
+      const input = readFile(`${__dirname}/../../src/day1/input.txt`);
 
       const result = resolverPart1(input);
 
@@ -25,10 +21,8 @@ describe("day 1", () => {
   });
 
   describe("part 2", () => {
-    it("find the three entries that sum to 2020 and then multiply those two numbers together with the input data", async () => {
-      const input = fs
-        .readFileSync(`${__dirname}/../../src/day1/test.txt`)
-        .toString();
+    it("find the three entries that sum to 2020 and then multiply those two numbers together", async () => {
+      const input = readFile(`${__dirname}/../../src/day1/test.txt`);
 
       const result = resolverPart2(input);
 
@@ -36,9 +30,7 @@ describe("day 1", () => {
     });
 
     it("find the three entries that sum to 2020 and then multiply those two numbers together with the input data", async () => {
-      const input = fs
-        .readFileSync(`${__dirname}/../../src/day1/input.txt`)
-        .toString();
+      const input = readFile(`${__dirname}/../../src/day1/input.txt`);
 
       const result = resolverPart2(input);
 
