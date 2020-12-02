@@ -1,25 +1,36 @@
 export const resolverPart1 = (input: string) => {
   const expenses = input.split("\n").map((n) => parseInt(n, 10));
 
-  for (let i = 0; i < expenses.length; i++) {
-    for (let j = 0; j < expenses.length; j++) {
-      if (expenses[i] + expenses[j] === 2020) {
-        return expenses[i] * expenses[j];
-      }
-    }
-  }
+  return expenses
+    .map((expense1) => {
+      return expenses
+        .map((expense2) => {
+          if (expense1 + expense2 === 2020) {
+            return expense1 * expense2;
+          }
+        })
+        .filter((sum) => !!sum);
+    })
+    .flat()
+    .filter((sum) => !!sum)[0];
 };
 
 export const resolverPart2 = (input: string) => {
   const expenses = input.split("\n").map((n) => parseInt(n, 10));
 
-  for (let i = 0; i < expenses.length; i++) {
-    for (let j = 0; j < expenses.length; j++) {
-      for (let k = 0; k < expenses.length; k++) {
-        if (expenses[i] + expenses[j] + expenses[k] === 2020) {
-          return expenses[i] * expenses[j] * expenses[k];
-        }
-      }
-    }
-  }
+  return expenses
+    .map((expense1) => {
+      return expenses
+        .map((expense2) => {
+          return expenses.map((expense3) => {
+            if (expense1 + expense2 + expense3 === 2020) {
+              return expense1 * expense2 * expense3;
+            }
+          });
+        })
+        .flat()
+        .filter((sum) => !!sum);
+    })
+    .flat()
+    .filter((sum) => !!sum)[0];
 };
