@@ -1,4 +1,4 @@
-export const validatePassword = (passwordEntry: string) => {
+export const minMaxLetterRule = (passwordEntry: string) => {
   const [rule, password] = passwordEntry.split(": ");
   const [minMax, letter] = rule.split(" ");
   const [min, max] = minMax.split("-");
@@ -18,6 +18,21 @@ export const validatePassword = (passwordEntry: string) => {
 
   return (
     letterMap[letter] >= parseInt(min) && letterMap[letter] <= parseInt(max)
+  );
+};
+
+export const letterPositionRule = (passwordEntry: string) => {
+  const [rule, password] = passwordEntry.split(": ");
+  const [coordinates, letter] = rule.split(" ");
+  const [position1, position2] = coordinates
+    .split("-")
+    .map((a) => parseInt(a, 10))
+    // Toboggan Corporate Policies have no concept of "index zero"!
+    .map((a) => a - 1);
+
+  return (
+    (password[position1] === letter && password[position2] !== letter) ||
+    (password[position1] !== letter && password[position2] === letter)
   );
 };
 
