@@ -1,4 +1,4 @@
-export const minMaxLetterRule = (passwordEntry: string) => {
+export const minMaxLetterRule = (passwordEntry: string): boolean => {
   const [rule, password] = passwordEntry.split(": ");
   const [minMax, letter] = rule.split(" ");
   const [min, max] = minMax.split("-");
@@ -21,7 +21,7 @@ export const minMaxLetterRule = (passwordEntry: string) => {
   );
 };
 
-export const letterPositionRule = (passwordEntry: string) => {
+export const letterPositionRule = (passwordEntry: string): boolean => {
   const [rule, password] = passwordEntry.split(": ");
   const [coordinates, letter] = rule.split(" ");
   const [position1, position2] = coordinates
