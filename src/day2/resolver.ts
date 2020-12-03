@@ -30,9 +30,9 @@ export const letterPositionRule = (passwordEntry: string): boolean => {
     // Toboggan Corporate Policies have no concept of "index zero"!
     .map((a) => a - 1);
 
-  return (
-    (password[position1] === letter && password[position2] !== letter) ||
-    (password[position1] !== letter && password[position2] === letter)
+  return !!(
+    (password[position1] === letter ? 1 : 0) ^
+    (password[position2] === letter ? 1 : 0)
   );
 };
 
