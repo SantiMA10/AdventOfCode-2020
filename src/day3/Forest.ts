@@ -6,6 +6,10 @@ export class Forest {
   }
 
   public isTree(x: number, y: number): boolean {
+    if (y > this.forest.length) {
+      return false;
+    }
+
     return this.forest[this.transformY(y)][this.transformX(x)] === "#";
   }
 
