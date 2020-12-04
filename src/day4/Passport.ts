@@ -1,5 +1,5 @@
 export class Passport {
-  private fields: string[];
+  protected fields: string[];
 
   public constructor(input: string) {
     this.fields = input.match(/((\w{3}:\S+)(\s|$))/gm) || [];
