@@ -9,7 +9,7 @@ import { PassportIdValidator } from "../../src/day4/validators/PassportIdValidat
 
 export class PassportWithValidators extends Passport {
   public isValid(): boolean {
-    return (
+    return !!(
       super.isValid() &&
       this.fields.every((field) => {
         let [fieldName, filedValue] = field.split(":");
