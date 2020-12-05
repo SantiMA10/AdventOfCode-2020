@@ -1,4 +1,4 @@
-import { resolverPart1 } from "../../src/day5/resolver";
+import { resolverPart1, resolverPart2 } from "../../src/day5/resolver";
 import { readFile } from "../../src/utils/utils";
 
 describe("day 5", () => {
@@ -14,6 +14,16 @@ describe("day 5", () => {
         const input = readFile("day5/input.txt");
 
         expect(resolverPart1(input)).toEqual(965);
+      });
+    });
+  });
+
+  describe("part 2", () => {
+    describe("resolverPart2", () => {
+      it("returns my seat id with the problem input", async () => {
+        const input = readFile("day5/input.txt");
+
+        expect(resolverPart2(input)).toEqual(524);
       });
     });
   });
