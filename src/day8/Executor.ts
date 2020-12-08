@@ -9,7 +9,7 @@ export class Executor {
     this.acc = 0;
   }
 
-  public run(): { acc: number } {
+  public run(): { acc: number; executedInstructions: number[] } {
     for (let i = 0; i < this.instructions.length; i++) {
       if (this.executedInstructions.includes(i)) {
         break;
@@ -34,6 +34,7 @@ export class Executor {
 
     return {
       acc: this.acc,
+      executedInstructions: this.executedInstructions,
     };
   }
 }
