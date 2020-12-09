@@ -18,8 +18,8 @@ export class XMASDecoder {
       let sum: boolean = false;
 
       for (let j = i - 1; j >= i - this.preambleSize; j--) {
-        for (let k = i - 1; k >= i - this.preambleSize; k--) {
-          if (j !== k && this.inputs[j] + this.inputs[k] === current) {
+        for (let k = j - 1; k >= i - this.preambleSize; k--) {
+          if (this.inputs[j] + this.inputs[k] === current) {
             sum = true;
           }
         }
