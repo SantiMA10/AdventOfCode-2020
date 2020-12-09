@@ -32,4 +32,24 @@ export class XMASDecoder {
 
     return -1;
   }
+
+  public findSequence(target: number): number {
+    for (let i = 0; i < this.inputs.length; i++) {
+      const initialSequence = this.inputs[i];
+      let accumulate = initialSequence;
+      const sequence = [initialSequence];
+
+      for (let j = i + 1; j < this.inputs.length; j++) {
+        const current = this.inputs[j];
+        accumulate += current;
+        sequence.push(current);
+
+        if (accumulate === target) {
+          return Math.max(...sequence) + Math.min(...sequence);
+        }
+      }
+    }
+
+    return -1;
+  }
 }
