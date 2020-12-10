@@ -1,4 +1,5 @@
 import { AdapterArray } from "../../src/day10/AdapterArray";
+import { readFile } from "../../src/utils/utils";
 
 describe("AdapterArray", () => {
   describe("#getNumberOfJoltsDifferences", () => {
@@ -16,40 +17,26 @@ describe("AdapterArray", () => {
 
     it("returns 220, since the are 22 differences of 1 jolt and 10 differences of 3 jolt", async () => {
       const subject = new AdapterArray(
-        28,
-        33,
-        18,
-        42,
-        31,
-        14,
-        46,
-        20,
-        48,
-        47,
-        24,
-        23,
-        49,
-        45,
-        19,
-        38,
-        39,
-        11,
-        1,
-        32,
-        25,
-        35,
-        8,
-        17,
-        7,
-        9,
-        4,
-        2,
-        34,
-        10,
-        3
+        ...readFile("day10/test.txt")
+          .split("\n")
+          .map((i) => parseInt(i, 10))
       );
 
       expect(220).toEqual(subject.getNumberOfJoltsDifferences());
+    });
+  });
+
+  describe("#getNumberOfSupportedArrangements", () => {
+    it("returns 8, since we have different options", async () => {
+      const subject = new AdapterArray(16, 10, 15, 5, 1, 11, 7, 19, 6, 12, 4);
+
+      expect(8).toEqual(subject.getNumberOfSupportedArrangements());
+    });
+
+    it("returns 10, since we have different options", async () => {
+      const subject = new AdapterArray(1, 2, 3, 8, 4, 5);
+
+      expect(10).toEqual(subject.getNumberOfJoltsDifferences());
     });
   });
 });
