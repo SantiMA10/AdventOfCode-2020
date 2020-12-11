@@ -1,6 +1,6 @@
 export class GameOfSeats {
-  private initialSeats: string[][];
-  private seats: string[][];
+  protected initialSeats: string[][];
+  protected seats: string[][];
 
   public constructor(state: string) {
     this.seats = state.split("\n").map((state) => state.split(""));
@@ -38,19 +38,19 @@ export class GameOfSeats {
     return output;
   }
 
-  private isFloor(seat: string): boolean {
+  protected isFloor(seat: string): boolean {
     return seat === ".";
   }
 
-  private isFree(seat: string): boolean {
+  protected isFree(seat: string): boolean {
     return seat === "L";
   }
 
-  private isOccupied(seat: string): boolean {
+  protected isOccupied(seat: string): boolean {
     return seat === "#";
   }
 
-  private getNumberOfOccupiedAdjacent(row: number, column: number): number {
+  protected getNumberOfOccupiedAdjacent(row: number, column: number): number {
     const coords = [-1, 0, 1];
     let occupied = 0;
 
