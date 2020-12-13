@@ -5,7 +5,7 @@ describe("ShuttleSearch", () => {
     it("returns 59 as the bus id", async () => {
       const subject = new ShuttleSearch({
         timestamp: 939,
-        buses: ["7", "13", "x", "x", "59", "x", "31", "19"],
+        busses: ["7", "13", "x", "x", "59", "x", "31", "19"],
       });
 
       expect(subject.getBusId()).toEqual(59);
@@ -14,7 +14,7 @@ describe("ShuttleSearch", () => {
     it("returns 7 as the bus id", async () => {
       const subject = new ShuttleSearch({
         timestamp: 945,
-        buses: ["7", "13", "x", "x", "59", "x", "31", "19"],
+        busses: ["7", "13", "x", "x", "59", "x", "31", "19"],
       });
 
       expect(subject.getBusId()).toEqual(7);
@@ -25,7 +25,7 @@ describe("ShuttleSearch", () => {
     it("returns 5 for the 59 bus", async () => {
       const subject = new ShuttleSearch({
         timestamp: 939,
-        buses: ["7", "13", "x", "x", "59", "x", "31", "19"],
+        busses: ["7", "13", "x", "x", "59", "x", "31", "19"],
       });
 
       expect(subject.getWaitingTime()).toEqual(5);
@@ -34,7 +34,7 @@ describe("ShuttleSearch", () => {
     it("returns 0 for the 7 bus", async () => {
       const subject = new ShuttleSearch({
         timestamp: 945,
-        buses: ["7", "13", "x", "x", "59", "x", "31", "19"],
+        busses: ["7", "13", "x", "x", "59", "x", "31", "19"],
       });
 
       expect(subject.getWaitingTime()).toEqual(0);
@@ -43,7 +43,7 @@ describe("ShuttleSearch", () => {
     it("returns 3 for the 13 bus", async () => {
       const subject = new ShuttleSearch({
         timestamp: 946,
-        buses: ["7", "13", "x", "x", "59", "x", "31", "19"],
+        busses: ["7", "13", "x", "x", "59", "x", "31", "19"],
       });
 
       expect(subject.getWaitingTime()).toEqual(3);

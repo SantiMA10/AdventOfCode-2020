@@ -1,21 +1,21 @@
 interface Options {
   timestamp: number;
-  buses: string[];
+  busses: string[];
 }
 
 export class ShuttleSearch {
   private timestamp: number;
-  private buses: number[];
+  private busses: number[];
 
-  public constructor({ timestamp, buses }: Options) {
+  public constructor({ timestamp, busses }: Options) {
     this.timestamp = timestamp;
-    this.buses = buses
+    this.busses = busses
       .filter((bus) => bus !== "x")
       .map((bus) => parseInt(bus, 10));
   }
 
   public getBusId(timestamp: number = this.timestamp): number {
-    const nextBus = this.buses.find((bus) => timestamp % bus === 0);
+    const nextBus = this.busses.find((bus) => timestamp % bus === 0);
 
     if (nextBus) {
       return nextBus;
@@ -25,7 +25,7 @@ export class ShuttleSearch {
   }
 
   public getWaitingTime(timestamp: number = this.timestamp): number {
-    const nextBus = this.buses.find((bus) => timestamp % bus === 0);
+    const nextBus = this.busses.find((bus) => timestamp % bus === 0);
 
     if (nextBus) {
       return timestamp - this.timestamp;

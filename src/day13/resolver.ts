@@ -5,7 +5,7 @@ export const resolverPart1 = (input: string) => {
 
   const search = new ShuttleSearch({
     timestamp: parseInt(timestamp, 10),
-    buses: buses.split(","),
+    busses: buses.split(","),
   });
 
   return search.getBusId() * search.getWaitingTime();
